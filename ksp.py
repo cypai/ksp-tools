@@ -10,7 +10,13 @@ class Body:
 bodies = {
     "Kerbin": Body(600000, 3.5316e12),
     "Mun": Body(200000, 6.5138398e10),
-    "Minmus": (60000, 1.7658e9),
+    "Minmus": Body(60000, 1.7658e9),
+    "Duna": Body(320000, 3.0136321e11),
+    "Ike": Body(130000, 1.8568369e10),
+    "Eve": Body(700000, 8.1717302e12),
+    "Moho": Body(250000, 1.6860938e11),
+    "Jool": Body(6000000, 2.8252800e14),
+    "Laythe": Body(500000, 1.962e12),
 }
 
 def orbital_period(a, g):
