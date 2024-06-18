@@ -22,7 +22,7 @@ def orbital_period(a, g):
     t = 2*math.pi*(a*a*a/g)**0.5
     h = int(t/3600)
     m = int(60*(t/3600-h))
-    s = int(60*(60*(t/3600-1)-m))
+    s = int(60*(60*(t/3600-h)-m))
     return (h, m, s, t)
 
 def seconds(h, m, s):
@@ -38,22 +38,22 @@ def desired_altitude(t: int, body: Body):
 def three_commsats(body: Body, antenna_range: int):
     min_orbital_period = orbital_period(body.r*2, body.G)
     h,m,s,t = min_orbital_period
-    print(f"Minimum Altitude: {body.r*2-body.r}")
-    print(f"Minimum Orbital Period: {h}h {m}m {s}s")
+    print(f"Min Altitude: {body.r*2-body.r}")
+    print(f"Min Orbital Period: {h}h {m}m {s}s (total {t}s)")
     max_a = antenna_range/math.sqrt(3)
     max_orbital_period = orbital_period(max_a, body.G)
     h,m,s,t = max_orbital_period
-    print(f"Maximum Altitude: {max_a - body.r}")
-    print(f"Maximum Orbital Period: {h}h {m}m {s}s")
+    print(f"Max Altitude: {max_a - body.r}")
+    print(f"Max Orbital Period: {h}h {m}m {s}s (total {t}s)")
 
 def four_commsats(body: Body, antenna_range: int):
     min_a = body.r*math.sqrt(2)
     min_orbital_period = orbital_period(min_a, body.G)
     h,m,s,t = min_orbital_period
-    print(f"Minimum Altitude: {min_a - body.r}")
-    print(f"Minimum Orbital Period: {h}h {m}m {s}s")
+    print(f"Min Altitude: {min_a - body.r}")
+    print(f"Min Orbital Period: {h}h {m}m {s}s (total {t}s)")
     max_a = antenna_range/math.sqrt(2)
     max_orbital_period = orbital_period(max_a, body.G)
     h,m,s,t = max_orbital_period
-    print(f"Maximum Altitude: {max_a - body.r}")
-    print(f"Maximum Orbital Period: {h}h {m}m {s}s")
+    print(f"Max Altitude: {max_a - body.r}")
+    print(f"Max Orbital Period: {h}h {m}m {s}s (total {t}s)")
